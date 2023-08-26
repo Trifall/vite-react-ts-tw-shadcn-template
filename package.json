@@ -11,22 +11,21 @@
 		"dev": "vite",
 		"build": "tsc && vite build",
 		"serve": "vite preview",
-		"lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
-		"lint:format": "prettier  --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
+		"lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --cache --max-warnings=0 --fix --ignore-path ./.gitignore",
+		"lint:format": "prettier --ignore-path .gitignore --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
 		"lint": "yarn lint:format && yarn lint:fix ",
-		"type-check": "tsc"
+		"type-check": "tsc",
+		"prepare": "husky install"
 	},
 	"dependencies": {
 		"@radix-ui/react-slot": "^1.0.2",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.0.0",
 		"lucide-react": "^0.269.0",
-		"moment-timezone": "^0.5.43",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"tailwind-merge": "^1.14.0",
-		"tailwindcss-animate": "^1.0.6",
-		"zod": "^3.22.2"
+		"tailwindcss-animate": "^1.0.6"
 	},
 	"devDependencies": {
 		"@types/node": "^20.5.6",
@@ -36,20 +35,25 @@
 		"@typescript-eslint/parser": "^6.0.0",
 		"@vitejs/plugin-react-swc": "^3.3.2",
 		"autoprefixer": "^10.4.15",
+		"depcheck": "^1.4.5",
 		"eslint": "^8.45.0",
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
 		"eslint-plugin-react": "^7.33.2",
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"eslint-plugin-react-refresh": "^0.4.3",
+		"husky": ">=6",
+		"lint-staged": ">=10",
 		"postcss": "^8.4.28",
-		"pre-commit": "^1.2.2",
 		"prettier": "^3.0.2",
 		"prettier-plugin-tailwindcss": "^0.5.3",
 		"tailwindcss": "^3.3.3",
 		"typescript": "^5.0.2",
 		"vite": "^4.4.5"
 	},
-	"pre-commit": "lint",
-	"license": "MIT"
+	"license": "MIT",
+	"lint-staged": {
+		"src/**/*.{js,jsx,ts,tsx,css,scss,md}": "yarn lint:format",
+		"src/**/*.{js,jsx,ts,tsx}": "yarn lint:fix && yarn type-check && yarn lint:format"
+	}
 }
