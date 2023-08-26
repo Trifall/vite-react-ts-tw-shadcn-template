@@ -43,7 +43,6 @@ module.exports = {
 				avoidEscape: true,
 			},
 		],
-		'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
 		'react/react-in-jsx-scope': 'off',
 		'jsx-a11y/accessible-emoji': 'off',
 		'react/prop-types': 'off',
