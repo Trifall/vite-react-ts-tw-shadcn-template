@@ -1,5 +1,7 @@
 // lint-staged.config.cjs
 module.exports = {
-	'*.{js,jsx}': ['eslint --cache --fix'],
-	'*.{ts,tsx}': [() => 'tsc --skipLibCheck --noEmit', 'yarn lint'],
+	'src/**/*.{js,jsx,ts,tsx,css,scss,md}': [
+		'eslint --cache --fix --max-warnings=0',
+		'prettier --write --ignore-unknown',
+	],
 };

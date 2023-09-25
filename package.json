@@ -1,6 +1,6 @@
 {
 	"name": "vite-react-ts-tw-shadcn-template",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"type": "module",
 	"description": "A template with Vite, React, TypeScript, TailwindCSS, and ShadCN UI.",
 	"author": {
@@ -11,7 +11,7 @@
 		"dev": "vite",
 		"build": "tsc && vite build",
 		"serve": "vite preview",
-		"lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --cache --fix --ignore-path ./.gitignore",
+		"lint:fix": "eslint ./src/** --ext .jsx,.js,.ts,.tsx --cache --fix --ignore-path ./.gitignore",
 		"lint:format": "prettier --ignore-path .gitignore --log-level warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
 		"lint": "yarn lint:format && yarn lint:fix ",
 		"pipeline": "yarn && yarn type-check && yarn lint && yarn build",
